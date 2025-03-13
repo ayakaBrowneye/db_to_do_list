@@ -41,3 +41,9 @@ yarn-error.log*
 next-env.d.ts
 
 dist
+
+# APiテスト用ファイル
+apiTest.http
+
+# ローカル環境のsupabaseファイルを無視
+supabase/

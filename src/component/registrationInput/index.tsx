@@ -5,10 +5,10 @@ import { useForm } from "react-hook-form";
 
 import Link from "next/link";
 
+import style from "./style.module.scss";
+
 import { useRegistrationContext } from "@/component/ContextProvider";
 import { LoadingSpinner } from "@/component/loadingSpinner";
-
-import style from "./style.module.scss";
 
 type props = {
   onNext: () => void;
@@ -19,7 +19,7 @@ type Input = {
   pass: string;
 };
 
-export default function RegistrationInput(props: props) {
+export function RegistrationInput(props: props) {
   // ユーザーネームとパスを管理するcontext
   const { setUserData } = useRegistrationContext();
 

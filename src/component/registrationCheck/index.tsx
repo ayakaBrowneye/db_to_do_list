@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 
+import style from "./style.module.scss";
+
 import { useRegistrationContext } from "@/component/ContextProvider";
 import { LoadingSpinner } from "@/component/loadingSpinner";
 import { Modal } from "@/component/Modal";
 
-import style from "./style.module.scss";
-
 type props = {
   onBack: () => void;
 };
-export default function RegistrationCheck(props: props) {
+export function RegistrationCheck(props: props) {
   // contextの内容の取得
   const { userData } = useRegistrationContext();
 

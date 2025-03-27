@@ -2,36 +2,6 @@
   max-width: 300px;
   margin: 1rem auto;
 
-  .name {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin: 1.5rem 0;
-    padding: 0.5rem;
-
-    span {
-      display: inline-block;
-      margin-right: 0.5rem;
-    }
-
-    .logout {
-      cursor: pointer;
-
-      padding: 5px;
-      border: solid 1px var(--primary-color);
-      border-radius: 5px;
-
-      background-color: var(--primary-color);
-    }
-  }
-
-  .message {
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
   .list {
     display: flex;
     align-items: center;
@@ -73,6 +43,12 @@
     text-align: center;
   }
 
+  .button {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
   .add {
     display: flex;
     flex-direction: column; // 要素を縦並び
@@ -111,11 +87,6 @@
         color: #fff;
 
         background-color: var(--primary-color);
-      }
-
-      .button {
-        display: flex;
-        gap: 1rem;
       }
     }
   }

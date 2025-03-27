@@ -19,4 +19,13 @@ model Lists {
     title String
     completed Boolean @default(false)
     createdAt DateTime @default(now())
+    userId Int
+    user User @relation(fields: [userId], references: [id])
+}
+
+model User { 
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+  lists    Lists[]
 }

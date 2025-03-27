@@ -1,0 +1,65 @@
+.page {
+  padding: 2rem;
+  text-align: center;
+
+  .wrapper {
+    overflow: hidden;
+
+    max-width: 300px;
+    margin: 0 auto;
+    border: solid var(--primary-color);
+    border-radius: 20px;
+
+    .title {
+      margin: 0;
+
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+
+      background-color: var(--primary-color);
+    }
+
+    .text {
+      margin: 1.5rem auto;
+    }
+
+    dl {
+      padding: 0 2rem;
+      text-align: left;
+
+      dd {
+        margin-bottom: 10px;
+        border-bottom: solid 3px var(--primary-color);
+        text-align: center;
+      }
+    }
+
+    .submit {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        cursor: pointer;
+
+        display: block;
+
+        margin: 1.5rem auto;
+        padding: 0.5rem 1rem;
+        border: solid var(--primary-color);
+        border-radius: 10px;
+
+        font-weight: bold;
+        color: #fff;
+
+        background-color: var(--primary-color);
+      }
+    }
+  }
+
+  .error {
+    margin: 5px 0 0;
+    font-size: 0.8rem;
+    color: red;
+  }
+}

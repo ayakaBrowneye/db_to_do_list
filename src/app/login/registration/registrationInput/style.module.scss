@@ -1,0 +1,66 @@
+.page {
+  padding: 2rem;
+  text-align: center;
+
+  .wrapper {
+    overflow: hidden;
+
+    max-width: 300px;
+    margin: 0 auto;
+    border: solid var(--primary-color);
+    border-radius: 20px;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+
+  .title {
+    margin: 0;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+
+    background-color: var(--primary-color);
+  }
+
+  .user,
+  .pass {
+    width: 80%;
+    margin: 1.5rem auto 0;
+    padding: 5px;
+  }
+
+  .error {
+    margin: 5px 0 0;
+    font-size: 0.8rem;
+    color: red;
+  }
+
+  .submit {
+    cursor: pointer;
+
+    display: block;
+
+    margin: 1.5rem auto 0;
+    padding: 0.5rem 1rem;
+    border: solid var(--primary-color);
+    border-radius: 10px;
+
+    font-weight: bold;
+    color: #fff;
+
+    background-color: var(--primary-color);
+  }
+
+  .login {
+    margin-bottom: 1.5rem;
+
+    a {
+      border-bottom: solid 1px var(--primary-color);
+      font-size: 0.8rem;
+      color: var(--primary-color);
+    }
+  }
+}

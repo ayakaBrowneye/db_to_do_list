@@ -3,9 +3,6 @@ import { PrismaClient } from "@prisma/client";
 import { List } from "@/component/List";
 import { getPayload } from "@/lib/auth/auth";
 
-// レンダリングを静的なものではなく、動的なレンダリングにする
-export const dynamic = "force-dynamic";
-
 // 取得データの型定義
 type List = {
   id: number;

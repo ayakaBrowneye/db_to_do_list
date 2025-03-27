@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 
-import style from "./style.module.scss";
-
 import { useRegistrationContext } from "@/component/ContextProvider";
 import { LoadingSpinner } from "@/component/loadingSpinner";
 import { Modal } from "@/component/Modal";
+
+import style from "./style.module.scss";
 
 type props = {
   onBack: () => void;

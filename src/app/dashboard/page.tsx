@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 
-import styles from "./style.module.scss";
-
 import { LoadingSpinner } from "@/component/loadingSpinner";
 import Task from "@/component/Task";
+
+import styles from "./style.module.scss";
 
 // export default Home;
 export default async function Page() {

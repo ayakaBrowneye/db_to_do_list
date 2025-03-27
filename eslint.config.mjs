@@ -59,6 +59,11 @@ const eslintConfig = [
               group: "external",
               position: "before",
             },
+            {
+              pattern: "**/*.scss",
+              group: "index",
+              position: "after",
+            },
           ],
           pathGroupsExcludedImportTypes: ["react"],
         },

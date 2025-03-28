@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+import { LoadingSpinner } from "@/component/loadingSpinner";
+
 import style from "./style.module.scss";
 
 export default function Register() {
@@ -15,8 +17,11 @@ export default function Register() {
     pass: string;
   };
 
+  // ローディングスピナー切り替え用
+  const [loading, setLoading] = useState<boolean>(false);
+
   //   エラーメッセージ用useState
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>("");
 
   // useRouterのインスタンス生成
   const router = useRouter();
@@ -33,6 +38,9 @@ export default function Register() {
   const login = async (data: Input) => {
     // エラー変数の初期化
     setError("");
+
+    // ローディングスピナーの表示
+    setLoading(true);
 
     // 入力データの取得
     const { user, pass } = data;
@@ -65,12 +73,15 @@ export default function Register() {
       if (e instanceof Error) {
         setError(e.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className={style.page}>
       <div className={style.wrapper}>
+        {loading && <LoadingSpinner />}
         <div className={style.title}>ログイン</div>
         <form onSubmit={handleSubmit(login)}>
           {error && <p className={style.error}>{error}</p>}

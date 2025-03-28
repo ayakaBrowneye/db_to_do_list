@@ -18,6 +18,9 @@ type JwtPayload = {
   exp?: number; // 有効期限（オプション）
 };
 
+// dashboard画面で使用されるコンポーネント
+// ユーザーのタスク情報を取得する
+// 取得したタスク情報はlistコンポーネントに引き渡す
 export default async function Task() {
   const decoded: JwtPayload | null = await getPayload();
 

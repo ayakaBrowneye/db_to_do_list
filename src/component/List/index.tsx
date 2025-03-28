@@ -30,6 +30,10 @@ type Input = {
   task: string;
 };
 
+// dashboardで使用されるコンポーネント
+// 取得したユーザーのタスクを一覧として表示させる。
+// なお、データの取得はSSRで実行したいので、taskコンポーネントでデータを取得し、
+// こちらのコンポーネントに引き渡している
 export function List(props: props) {
   // タスクを管理するuseState
   const [lists, setLists] = useState<List[]>(
@@ -89,6 +93,7 @@ export function List(props: props) {
 
     const completed = e.currentTarget.dataset.checked === "true";
 
+    // プロパティの変更
     setLists((preLists) =>
       preLists.map((list) =>
         list.id === Number(id) ? { ...list, completed: !completed } : list
@@ -99,8 +104,13 @@ export function List(props: props) {
   ////_/_/_/_/_ ※削除ボタン（APi通信なし）_/_/_/_/_
   // useStateからタスクを削除
   const onDeleteClick = (e: React.MouseEvent<HTMLInputElement>) => {
+    // メッセージの初期化
+    setMessage("");
+
+    // 削除するタスクIDの取得
     const id = e.currentTarget.dataset.id;
 
+    // 対象のタスクを配列から削除
     setLists((preLists) => preLists.filter((list) => list.id !== Number(id)));
   };
 
@@ -144,6 +154,7 @@ export function List(props: props) {
     }
   };
 
+  // ログアウト処理
   const onLogout = async () => {
     // apiURLの取得
     const logoutUrl = `${process.env.NEXT_PUBLIC_API_URL}/login`;

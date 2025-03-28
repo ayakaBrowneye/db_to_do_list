@@ -2,6 +2,7 @@ import { NextPage } from "next";
 
 import styles from "./style.module.scss";
 
+// 共通ヘッダー
 export const Header: NextPage = () => {
   return (
     <header>

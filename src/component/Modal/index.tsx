@@ -5,6 +5,13 @@ import Link from "next/link";
 
 import style from "./style.module.scss";
 
+// モーダル
+// プロップス
+// message:表示されるメッセージ
+// link:閉じるを押下した時のリンク先
+// error:エラーに関するモーダルだったらtrue、そうでなければfalse
+// ↑表示されるアイコンが変わる
+
 type props = {
   message: string;
   link: string;

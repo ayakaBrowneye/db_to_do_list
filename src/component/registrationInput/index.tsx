@@ -19,6 +19,10 @@ type Input = {
   pass: string;
 };
 
+// ユーザーの登録画面の最初に表示されるコンポーネント
+// ユーザー情報を入力とそのバリデーションを担う。
+// 入力したユーザー情報に問題がなければ、登録ボタンを押下したときに
+// checkコンポーネントに切り替わる
 export function RegistrationInput(props: props) {
   // ユーザーネームとパスを管理するcontext
   const { setUserData } = useRegistrationContext();

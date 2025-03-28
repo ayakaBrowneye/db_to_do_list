@@ -11,6 +11,12 @@ import style from "./style.module.scss";
 type props = {
   onBack: () => void;
 };
+
+// 登録画面のコンポーネント
+// 登録内容に不備がなかったときにこちらのコンポーネントに切り替わる。
+// データの移動にはcontextを採用
+// 登録ボタンを押下するとDBにユーザー情報が登録される
+// 戻るボタンで、登録内容の入力コンポーネントに切り替わる
 export function RegistrationCheck(props: props) {
   // contextの内容の取得
   const { userData } = useRegistrationContext();

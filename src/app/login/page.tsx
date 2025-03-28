@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 import { LoadingSpinner } from "@/component/loadingSpinner";
+import { Modal } from "@/component/Modal";
 
 import style from "./style.module.scss";
 
@@ -23,8 +23,8 @@ export default function Register() {
   //   エラーメッセージ用useState
   const [error, setError] = useState<string>("");
 
-  // useRouterのインスタンス生成
-  const router = useRouter();
+  // ログイン成功時のモーダル表示
+  const [isLogin, setIsLogin] = useState<boolean>(false);
 
   // react-hook-formの定義
   const {
@@ -35,7 +35,7 @@ export default function Register() {
   } = useForm<Input>();
 
   //   登録処理_登録ボタンをクリックしたら発火
-  const login = async (data: Input) => {
+  const onLogin = async (data: Input) => {
     // エラー変数の初期化
     setError("");
 
@@ -65,8 +65,7 @@ export default function Register() {
         throw new Error(error.message);
       }
 
-      // ダッシュボード画面にリダイレクト
-      router.push("/dashboard");
+      setIsLogin(true);
 
       reset();
     } catch (e) {
@@ -81,9 +80,18 @@ export default function Register() {
   return (
     <div className={style.page}>
       <div className={style.wrapper}>
+        {/* ローディングスピナー */}
         {loading && <LoadingSpinner />}
+        {/* モーダル */}
+        {isLogin && (
+          <Modal
+            message={`ログインが完了しました。`}
+            link="/dashboard"
+            error={false}
+          />
+        )}
         <div className={style.title}>ログイン</div>
-        <form onSubmit={handleSubmit(login)}>
+        <form onSubmit={handleSubmit(onLogin)}>
           {error && <p className={style.error}>{error}</p>}
           <input
             className={style.user}

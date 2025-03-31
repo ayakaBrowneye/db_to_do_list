@@ -44,7 +44,14 @@ export const getPayload = async (): Promise<JwtPayload | null> => {
       return null;
     }
 
-    return verifyToken(accessToken, SECRET_KEY);
+    // 戻り値がnullだった場合、クッキーを削除する
+    const decoded = verifyToken(accessToken, SECRET_KEY);
+    if (!decoded) {
+      cookieStore.delete("accessToken");
+      cookieStore.delete("refreshToken");
+      return null;
+    }
+    return decoded;
   } catch (error) {
     console.error(error);
 
